@@ -2,8 +2,10 @@
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
 puts "Start seeding..."
+
   makeups = Makeup.create([
-    {name: "Maybelline Lipstic",
+    {
+     name: "Maybelline Lipstic",
      image_url: "https://beautyclick.co.ke/products/maybelline-superstay-matte-ink-liquid-20-pioneer"
     },
 
@@ -18,30 +20,33 @@ puts "Start seeding..."
   }
 ])
 
-reviews = Review.create([
-    {
-        tittle: "Perfect",
-        description: "The Maybelline Lipstick is effortless while applying",
-        rating: "5"
-    },
+# reviews = Review.create([
+#     {
+#         tittle: "Perfect",
+#         description: "The Maybelline Lipstick is effortless while applying",
+#         rating: 5,
+#         makeup: makeups.first
+#     },
 
-    {
-        tittle: "Good", 
-        description: "The foundation takes too long to dry up", 
-        rating: "2"
-    },   
-    {
-        tittle: "Weak", 
-        description: "The makeup-brush was too weak and it got broken", 
-        rating: "1"
-    },
+#     {
+#         tittle: "Good", 
+#         description: "The foundation takes too long to dry up", 
+#         rating: 2,
+#         makeup: makeups.first
+#     },   
+#     {
+#         tittle: "Weak", 
+#         description: "The makeup-brush was too weak and it got broken", 
+#         rating: 1,
+#         makeup: makeups.last
+#     },
     
-    {
-        tittle: "Poor",
-         description: "The lipstick doesn't glide on lips", 
-         rating: "4"
-    }
-])
+#     {
+#         tittle: "Poor",
+#          description: "The lipstick doesn't glide on lips", 
+#          rating: 4
+#     }
+# ])
 
 
 puts "Seeding done!"
