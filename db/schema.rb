@@ -16,34 +16,40 @@ ActiveRecord::Schema.define(version: 2022_12_07_221125) do
   enable_extension "plpgsql"
 
   create_table "makeups", force: :cascade do |t|
-    t.string "name"
-    t.string "image_url"
-    t.string "slug"
+    t.string :name
+      t.string :description
+      t.string :status
+      t.string :image
+      t.string :url
+      t.float :price
+      t.integer :user_id
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "order_makeups", force: :cascade do |t|
+    t.integer  :order_id
+    t.integer  :makeup_id 
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "orders", force: :cascade do |t|
+    t.datetime :date
+      t.string :status
+      t.integer :user_id
+      t.float :total
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    
   end
 
-  create_table "reviews", force: :cascade do |t|
-    t.string "tittle"
-    t.string "description"
-    t.integer "rating"
-    t.bigint "makeup_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["makeup_id"], name: "index_reviews_on_makeup_id"
-  end
-
-  create_table "users", force: :cascade do |t|
+   create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "username"
+    t.string "email"
+    t.string "password_digest"
+    t.integer "makeup_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

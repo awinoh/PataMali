@@ -3,6 +3,6 @@ class User < ApplicationRecord
       
     has_many :orders
   
-    # has_many :makeups as an admin
-    # validates :name, :email, :presence: true
+    # has_many :makeups as an Admin
+    # validates :name, :email, :presence true
 end
